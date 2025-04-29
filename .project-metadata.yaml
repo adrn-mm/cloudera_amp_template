@@ -1,0 +1,30 @@
+name: Test AMP
+description: Run a Streamlit app inside CML.
+author: Adrian M.M.
+specification_version: 1.0
+prototype_version: 1.0
+date: "2025-04-29"
+
+runtimes:
+  - editor: PBJ Workbench ## Other acceptable values are determined by the runtimes available in your CML environment
+    kernel: Python 3.10 ## Same here, check your runtimes (custom runtimes can be added as well)
+    edition: Standard ## Particularly relevant if using GPUs, Nvidia GPU
+
+## Below are some sample tasks based on some of the most popular aspects of AMP creation.
+tasks:
+  ## SESSION related AMP snippet
+  - type: run_session
+    name: Install Dependencies
+    script: 0_session-install-dependencies/install_dependencies.py
+    short_summary: Install Requirements and Dependencies
+    kernel: python3
+    cpu: 2
+    memory: 4
+
+  ## APPLICATION related AMP snippet
+  - type: start_application
+    name: Streamlit App
+    subdomain: streamlit
+    script: 1_app-run-python-script/launch_app.py
+    environment_variables:
+      TASK_TYPE: START_APPLICATION
