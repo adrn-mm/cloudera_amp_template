@@ -15,16 +15,16 @@ tasks:
   ## SESSION related AMP snippet
   - type: run_session
     name: Install Dependencies
-    script: 0_session-install-dependencies/install_dependencies.py
+    script: install_dependencies.py
     short_summary: Install Requirements and Dependencies
     kernel: python3
-    cpu: 2
-    memory: 4
+    cpu: 1
+    memory: 2
 
   ## APPLICATION related AMP snippet
   - type: start_application
     name: Streamlit App
     subdomain: streamlit
-    script: 1_app-run-python-script/launch_app.py
+    script: launch_app.py
     environment_variables:
       TASK_TYPE: START_APPLICATION
